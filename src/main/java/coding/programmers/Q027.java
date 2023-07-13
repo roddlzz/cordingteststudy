@@ -7,7 +7,7 @@ package coding.programmers;
 //  stk에 원소가 있고, stk의 마지막 원소가 arr[i]보다 작으면 arr[i]를 stk의 뒤에 추가하고 i에 1을 더합니다.
 //  stk에 원소가 있는데 stk의 마지막 원소가 arr[i]보다 크거나 같으면 stk의 마지막 원소를 stk에서 제거합니다.
 //  위 작업을 마친 후 만들어진 stk를 return 하는 solution 함수를 완성해 주세요.
-//입출력 예
+//    입출력 예
 //    arr	result
 //    [1, 4, 2, 5, 3]	[1, 2, 3]
 //    입출력 예 설명
