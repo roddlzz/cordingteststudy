@@ -1,6 +1,8 @@
 package coding.programmers;
 
-//  배열 만들기4 https://school.programmers.co.kr/learn/courses/30/lessons/181918 Todo
+import java.util.Stack;
+
+//  배열 만들기4 https://school.programmers.co.kr/learn/courses/30/lessons/181918
 //  정수 배열 arr가 주어집니다. arr를 이용해 새로운 배열 stk를 만드려고 합니다.
 //  변수 i를 만들어 초기값을 0으로 설정한 후 i가 arr의 길이보다 작으면 다음 작업을 반복합니다.
 //  만약 stk가 빈 배열이라면 arr[i]를 stk에 추가하고 i에 1을 더합니다.
@@ -24,13 +26,19 @@ package coding.programmers;
 //    -	-	[1, 2, 3]
 //    따라서 [1, 2, 3]을 return 합니다.
 public class Q027 {
-//  public int[] solution(int[] arr) {
-//    int[] stk = {};
-//    for (int i =0; i<arr.length;i++){
-//      if (stk == null){
-//        stk = stk + arr[i];
-//      }
-//    }
-//    return stk;
-//  }
+  public int[] solution(int[] arr) {
+    Stack<Integer> stk = new Stack<>();
+    int i = 0;
+
+    while (i < arr.length) {
+      if (stk.isEmpty() || arr[i] > stk.peek()) {
+        stk.add(arr[i]);
+        i++;
+      } else {
+        stk.pop();
+      }
+    }
+
+    return stk.stream().mapToInt(num -> num).toArray();
+  }
 }
