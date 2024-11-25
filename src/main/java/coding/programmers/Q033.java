@@ -12,14 +12,19 @@ import java.util.List;
 
 public class Q033 {
   public int[] solution(String[] intStrs, int k, int s, int l) {
-    List<Integer> result = new ArrayList<>();
+    int[] answer = {};
 
-    int end = Math.min(s + l, intStrs.length);
 
-    for (String str : intStrs) {
-      for (int i = s; i < end; i++) {
-      }
-    }
-    return result.stream().mapToInt(i -> i).toArray();
+
+    return answer;
   }
+
+  public static void main(String[] args) {
+    Q033 q = new Q033();
+    System.out.println(q.solution(new String[]{"0123456789", "9876543210", "9999999999999"}, 50000, 5, 5));
+  }
+
 }
+
+
+
