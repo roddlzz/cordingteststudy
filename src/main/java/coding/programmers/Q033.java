@@ -12,11 +12,18 @@ import java.util.List;
 
 public class Q033 {
   public int[] solution(String[] intStrs, int k, int s, int l) {
-    int[] answer = {};
+    List<Integer> list = new ArrayList<>();
 
+    for (String intStr : intStrs) {
+      String intString = intStr.substring(s, s + l);
+      int number = Integer.parseInt(intString);
 
+      if (number > k) {
+        list.add(number);
+      }
+    }
 
-    return answer;
+    return list.stream().mapToInt(i -> i).toArray();
   }
 
   public static void main(String[] args) {
