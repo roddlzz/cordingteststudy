@@ -2,7 +2,7 @@ package coding.programmers;
 
 import java.util.ArrayList;
 
-//    리스트 자르기 https://school.programmers.co.kr/learn/courses/30/lessons/181897 todo 질문
+//    리스트 자르기 https://school.programmers.co.kr/learn/courses/30/lessons/181897
 //    문제 설명
 //    정수 n과 정수 3개가 담긴 리스트 slicer 그리고 정수 여러 개가 담긴 리스트 num_list가 주어집니다. slicer에 담긴 정수를 차례대로 a, b, c라고 할 때, n에 따라 다음과 같이 num_list를 슬라이싱 하려고 합니다.
 //    n = 1 : num_list의 0번 인덱스부터 b번 인덱스까지
@@ -22,25 +22,36 @@ public class Q103 {
     int a = slicer[0];
     int b = slicer[1];
     int c = slicer[2];
+    int len = num_list.length;
 
-    if (n == 1) {
-      for (int i = 0; i < b; i++){
-        list.add(num_list[i]);
-      }
-    } else if (n == 2) {
-      for (int i = a; i <= num_list.length; i++){
-        list.add(num_list[i]);
-      }
-    } else if (n == 3) {
-      for (int i = a; i <= b; i++){
-        list.add(num_list[i]);
-      }
-    } else if (n == 4) {
-      for (int i = a; i <= b; i = i + c){
-        list.add(num_list[i]);
-      }
+    switch (n) {
+      case 1:
+        for (int i = 0; i <= b; i++) {
+          list.add(num_list[i]);
+        }
+        break;
+      case 2:
+        for (int i = a; i < len; i++) {
+          list.add(num_list[i]);
+        }
+        break;
+      case 3:
+        for (int i = a; i <= b; i++) {
+          list.add(num_list[i]);
+        }
+        break;
+      case 4:
+        for (int i = a; i <= b; i = i + c) {
+          list.add(num_list[i]);
+        }
+        break;
     }
-    int[] answer = list.stream().mapToInt(i->i).toArray();
-    return answer;
+
+    return list.stream().mapToInt(i -> i).toArray();
+  }
+
+  public static void main(String[] args) {
+    Q103 solution = new Q103();
+    System.out.println(solution.solution(3, new int[]{1, 5, 2}, new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9}));
   }
 }
